@@ -29,13 +29,14 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public Loader<String> onCreateLoader(int id, Bundle args) {
-        Log.i(TAG, "onCreateLoader: " + Thread.currentThread().getId());
+        Log.i(TAG, "onCreateLoader: this will be called first " + Thread.currentThread().getId());
         return new SimpleLoader(this);
     }
 
     @Override
     public void onLoadFinished(Loader<String> loader, String data) {
-        Log.i(TAG, "onLoadFinished: " + Thread.currentThread().getId());
+        Log.i(TAG, "onLoadFinished: this will be called fourth but" +
+                "if loader already exist than this will be called first " + Thread.currentThread().getId());
         tvJsonResult.setText(data);
     }
 

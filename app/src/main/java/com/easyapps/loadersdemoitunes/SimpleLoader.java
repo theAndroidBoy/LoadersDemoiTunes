@@ -25,12 +25,12 @@ public class SimpleLoader extends AsyncTaskLoader<String> {
         super.onStartLoading();
         forceLoad();
         Log.i(TAG, "onStartLoading: without ForceLoad it won't go to loadinBackground");
-        Log.i(TAG, "onStartLoading: "+ Thread.currentThread().getId());
+        Log.i(TAG, "onStartLoading: this will be called second "+ Thread.currentThread().getId());
     }
 
     @Override
     public String loadInBackground() {
-        Log.i(TAG, "loadInBackground: "+ Thread.currentThread().getId());
+        Log.i(TAG, "loadInBackground: this will be called third "+ Thread.currentThread().getId());
 
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
